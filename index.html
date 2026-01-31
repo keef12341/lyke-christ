@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyke Christ - Faith Inspired Apparel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF7F2;
+            --sand: #E8D7C3;
+            --tan: #C9B8A0;
+            --warm-gray: #A89F94;
+            --purple: #7C5295;
+            --deep-purple: #5E3E73;
+            --charcoal: #2C2C2C;
+            --off-white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            z-index: 9999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Floating decorative crosses */
+        .deco-cross {
+            position: fixed;
+            font-size: 2rem;
+            color: var(--charcoal);
+            opacity: 0.08;
+            font-weight: 300;
+            pointer-events: none;
+            z-index: 1;
+            animation: float-gentle 10s ease-in-out infinite;
+        }
+
+        @keyframes float-gentle {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(15px, -15px) rotate(5deg); }
+            50% { transform: translate(-10px, -25px) rotate(-5deg); }
+            75% { transform: translate(-15px, -10px) rotate(3deg); }
+        }
+
+        /* Decorative stars */
+        .deco-star {
+            position: fixed;
+            font-size: 1.5rem;
+            color: var(--purple);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.12; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.25; transform: scale(1.15) rotate(15deg); }
+        }
+
+        /* Decorative dots */
+        .deco-dots {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dot {
+            width: 3px;
+            height: 3px;
+            background: var(--tan);
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.3;
+            animation: pulse-dot 5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.5); }
+        }
+
+        /* Squiggly lines */
+        .deco-squiggle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        .deco-squiggle svg {
+            stroke: var(--tan);
+            fill: none;
+            stroke-width: 2;
+            animation: draw-squiggle 8s ease-in-out infinite;
+        }
+
+        @keyframes draw-squiggle {
+            0%, 100% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 247, 242, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(201, 184, 160, 0.15);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple) 30%, var(--purple) 70%, transparent);
+            opacity: 0.1;
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '✝';
+            position: absolute;
+            right: -25px;
+            top: -8px;
+            font-size: 0.8rem;
+            color: var(--purple);
+            opacity: 0.4;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-center a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-center a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--purple);
+            transition: width 0.3s ease;
+        }
+
+        .nav-center a:hover::after {
+            width: 100%;
+        }
+
+        .nav-center a:hover {
+            color: var(--purple);
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-icon {
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--charcoal);
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            color: var(--purple);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 6rem;
+            min-height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated gradient background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(124, 82, 149, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(232, 215, 195, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(201, 184, 160, 0.06) 0%, transparent 50%);
+            animation: gradient-shift 15s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Geometric pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(201, 184, 160, 0.03) 100px, rgba(201, 184, 160, 0.03) 102px);
+            pointer-events: none;
+        }
+
+        .hero-gallery {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 10s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 3.5rem 3rem;
+            background: rgba(250, 247, 242, 0.97);
+            backdrop-filter: blur(15px);
+            border-radius: 2px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(201, 184, 160, 0.2);
+        }
+
+        /* Decorative corners on hero box */
+        .hero-content::before,
+        .hero-content::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--purple);
+            opacity: 0.2;
+        }
+
+        .hero-content::before {
+            top: -10px;
+            left: -10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .hero-content::after {
+            bottom: -10px;
+            right: -10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            position: relative;
+        }
+
+        .hero-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--purple), transparent);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--warm-gray);
+            margin-bottom: 2.5rem;
+            margin-top: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: var(--off-white);
+            padding: 1.1rem 2.5rem;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 82, 149, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--charcoal);
+            padding: 1.1rem 2.5rem;
+            border: 2px solid var(--tan);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            background: rgba(124, 82, 149, 0.05);
+        }
+
+        /* Featured Collections */
+        .featured {
+            padding: 8rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Dot pattern background */
+        .featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--tan) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '✦';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--purple);
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .section-title::after {
+            content: '✦';
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--purple);
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            font-weight: 400;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--off-white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(124, 82, 149, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .collection-card:hover::before {
+            opacity: 1;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover .collection-image {
+            transform: scale(1.05);
+        }
+
+        .collection-info {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            background: var(--off-white);
+        }
+
+        .collection-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .collection-info p {
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .collection-link {
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .collection-link:hover {
+            gap: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--sand);
+            padding: 8rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Diagonal stripe pattern */
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 60px,
+                rgba(124, 82, 149, 0.02) 60px,
+                rgba(124, 82, 149, 0.02) 61px
+            );
+            pointer-events: none;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .about-verse {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--purple);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .about-verse::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--purple);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-reference {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-image {
+            height: 600px;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(201, 184, 160, 0.3);
+            pointer-events: none;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--cream);
+            padding: 6rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(180deg, transparent, var(--purple), transparent);
+            opacity: 0.2;
+        }
+
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            margin-bottom: 3rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid var(--tan);
+            background: var(--off-white);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(124, 82, 149, 0.1);
+        }
+
+        .newsletter-btn {
+            background: var(--purple);
+            color: var(--off-white);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--deep-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 5rem 3rem 2rem 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), transparent);
+            opacity: 0.3;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--warm-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--purple);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--cream);
+            transition: fill 0.3s ease;
+        }
+
+        .social-link:hover svg {
+            fill: var(--purple);
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--warm-gray);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--purple);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(201, 184, 160, 0.2);
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(3) {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .nav-center {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(2) {
+                display: none;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title::before,
+            .section-title::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Elements -->
+    <div class="deco-cross" style="top: 12%; left: 8%; animation-delay: 0s;">✝</div>
+    <div class="deco-cross" style="top: 25%; right: 10%; animation-delay: 2s; font-size: 1.8rem;">✝</div>
+    <div class="deco-cross" style="top: 55%; left: 5%; animation-delay: 4s; font-size: 2.2rem;">✝</div>
+    <div class="deco-cross" style="top: 78%; right: 12%; animation-delay: 6s;">✝</div>
+    <div class="deco-cross" style="top: 40%; right: 18%; animation-delay: 3s; font-size: 1.5rem;">✝</div>
+    
+    <div class="deco-star" style="top: 18%; right: 20%; animation-delay: 0s;">✦</div>
+    <div class="deco-star" style="top: 48%; left: 15%; animation-delay: 1s;">✧</div>
+    <div class="deco-star" style="top: 68%; right: 25%; animation-delay: 2s;">✦</div>
+    <div class="deco-star" style="top: 85%; left: 22%; animation-delay: 3s; font-size: 1.2rem;">✧</div>
+    <div class="deco-star" style="top: 32%; left: 18%; animation-delay: 1.5s;">✦</div>
+
+    <div class="deco-squiggle" style="top: 20%; left: 30%;">
+        <svg width="60" height="60">
+            <path d="M 10,30 Q 20,10 30,30 T 50,30" stroke-dasharray="100" stroke-dashoffset="100"/>
+        </svg>
+    </div>
+
+    <div class="deco-squiggle" style="top: 60%; right: 15%;">
+        <svg width="80" height="60">
+            <path d="M 10,30 Q 30,10 50,30 T 70,30" stroke-dasharray="100" stroke-dashoffset="100"/>
+        </svg>
+    </div>
+
+    <div class="deco-dots" style="top: 35%; left: 40%;">
+        <div class="dot" style="left: 0; top: 0; animation-delay: 0s;"></div>
+        <div class="dot" style="left: 20px; top: 10px; animation-delay: 0.5s;"></div>
+        <div class="dot" style="left: 40px; top: 5px; animation-delay: 1s;"></div>
+    </div>
+
+    <div class="deco-dots" style="top: 70%; right: 30%;">
+        <div class="dot" style="left: 0; top: 0; animation-delay: 1.5s;"></div>
+        <div class="dot" style="left: 15px; top: 15px; animation-delay: 2s;"></div>
+        <div class="dot" style="left: 30px; top: 8px; animation-delay: 2.5s;"></div>
+        <div class="dot" style="left: 45px; top: 20px; animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">LYKE CHRIST</a>
+            
+            <ul class="nav-center">
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-icon">🛍️</span>
+                <button class="mobile-toggle">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-gallery">
+            <div class="gallery-item">
+                <div class="gallery-img" style="background: linear-gradient(135deg, #FAF7F2 0%, #E8D7C3 100%);"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img" style="background: linear-gradient(135deg, #E8D7C3 0%, #C9B8A0 100%);"></div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-img" style="background: linear-gradient(135deg, #C9B8A0 0%, #A89F94 100%);"></div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Wear Your Faith</h1>
+            <p>Premium Christian apparel designed for believers who live boldly</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn-primary">Shop Collection</a>
+                <a href="#about" class="btn-secondary">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="featured" id="collections">
+        <div class="section-header">
+            <h2 class="section-title">New Arrivals</h2>
+            <p class="section-subtitle">Discover our latest faith-inspired designs</p>
+        </div>
+
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-image" style="background: linear-gradient(135deg, #E8D7C3 0%, #C9B8A0 100%);"></div>
+                <div class="collection-info">
+                    <h3>Premium Hoodies</h3>
+                    <p>Comfort meets conviction</p>
+                    <a href="#" class="collection-link">Shop Now →</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image" style="background: linear-gradient(135deg, #FAF7F2 0%, #E8D7C3 100%);"></div>
+                <div class="collection-info">
+                    <h3>Statement Tees</h3>
+                    <p>Wear your faith boldly</p>
+                    <a href="#" class="collection-link">Shop Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Clothing with a Higher Purpose</h2>
+                <p class="about-verse">Therefore be imitators of God, as beloved children. And walk in love, as Christ loved us.</p>
+                <p class="about-reference">— Ephesians 5:1-2</p>
+                <p>At Lyke Christ, we believe your wardrobe should reflect your values. Each piece is thoughtfully designed to spark conversations about faith and inspire you to live authentically as a follower of Christ.</p>
+                <p>More than clothing, we're building a community of believers who aren't afraid to wear their faith boldly in every season of life.</p>
+                <a href="#" class="btn-primary">Read Our Full Story</a>
+            </div>
+            <div class="about-image">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #A89F94 0%, #C9B8A0 100%);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the Community</h2>
+            <p>Be the first to know about new drops, exclusive offers, and inspirational content</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LYKE CHRIST</h3>
+                <p>Premium Christian apparel for believers who live boldly. Every purchase supports our mission to spread the Gospel through fashion.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <a href="#">New Arrivals</a>
+                <a href="#">Hoodies</a>
+                <a href="#">T-Shirts</a>
+                <a href="#">Sale</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Our Story</a>
+                <a href="#">Mission</a>
+                <a href="#">Blog</a>
+                <a href="#">Reviews</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">Size Guide</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lyke Christ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
