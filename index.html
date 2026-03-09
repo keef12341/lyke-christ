@@ -728,6 +728,215 @@
             position: relative;
         }
 
+        /* Interactive Community Section */
+        .community {
+            background: var(--cream);
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .community::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--tan) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .community-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .community-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .community-header p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+        }
+
+        .community-tabs {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: var(--purple);
+            color: var(--off-white);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn:hover {
+            background: var(--deep-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.3);
+        }
+
+        .tab-btn.active {
+            background: var(--deep-purple);
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .chat-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--off-white);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            padding: 2rem;
+            max-height: 500px;
+            overflow-y: auto;
+            background: var(--cream);
+        }
+
+        .chat-message {
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-date {
+            text-align: center;
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .message-bubble {
+            background: var(--sand);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .message-author {
+            font-weight: 700;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .message-time {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .message-text {
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .chat-input-container {
+            padding: 1.5rem 2rem;
+            background: var(--off-white);
+            border-top: 1px solid var(--tan);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--tan);
+            border-radius: 25px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(45, 27, 61, 0.1);
+        }
+
+        .chat-send-btn {
+            background: var(--purple);
+            color: var(--off-white);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: lowercase;
+        }
+
+        .chat-send-btn:hover {
+            background: var(--deep-purple);
+            transform: scale(1.05);
+        }
+
+        .community-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .newsletter {
+            background: var(--cream);
+            padding: 6rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
         .newsletter::before {
             content: '';
             position: absolute;
@@ -1071,6 +1280,19 @@
                 flex-direction: column;
             }
 
+            .community-tabs {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .message-bubble {
+                max-width: 90%;
+            }
+
             .newsletter-form {
                 flex-direction: column;
             }
@@ -1180,7 +1402,7 @@
 
         <div class="hero-content">
             <h1>Wear Your Faith</h1>
-            <p>Premium Christian apparel designed for believers who live boldly</p>
+            <p>Spreading the word of God one thread at a time</p>
             <div class="hero-buttons">
                 <a href="#shop" class="btn-primary">Shop Collection</a>
                 <a href="#about" class="btn-secondary">Our Story</a>
@@ -1221,14 +1443,151 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>Clothing with a Higher Purpose</h2>
-                <p class="about-verse">Therefore be imitators of God, as beloved children. And walk in love, as Christ loved us.</p>
-                <p class="about-reference">— Ephesians 5:1-2</p>
-                <p>At Lyke Christ, we believe your wardrobe should reflect your values. Each piece is thoughtfully designed to spark conversations about faith and inspire you to live authentically as a follower of Christ.</p>
-                <p>More than clothing, we're building a community of believers who aren't afraid to wear their faith boldly in every season of life.</p>
+                <p class="about-verse">He said to them, "Go into all the world and preach the Gospel to all creation."</p>
+                <p class="about-reference">— Mark 16:15</p>
+                <p>Lyke Christ is a premium clothing brand that is spreading the word of God through clothing. Each piece is designed to start a conversation and allows you to be a witness and a light unto others in the world.</p>
+                <p>We make sure that each piece is of great quality to make sure we produce lasting products for our customers. We aspire to create a community that can lean on each other and be true disciples of Jesus Christ.</p>
                 <a href="#" class="btn-primary">Read Our Full Story</a>
             </div>
             <div class="about-image">
                 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #A89F94 0%, #C9B8A0 100%);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Community -->
+    <section class="community" id="community">
+        <div class="community-content">
+            <div class="community-header">
+                <h2>Interactive Community</h2>
+                <p>Join our community of believers in prayer and celebration</p>
+            </div>
+
+            <div class="community-tabs">
+                <button class="tab-btn active" onclick="switchTab('prayer')">Prayer Request</button>
+                <button class="tab-btn" onclick="switchTab('testimonials')">Testimonials</button>
+            </div>
+
+            <!-- Prayer Request Tab -->
+            <div class="tab-content active" id="prayer-tab">
+                <div class="chat-container">
+                    <div class="chat-messages" id="prayer-messages">
+                        <div class="message-date">2/19</div>
+                        
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Sally</span>
+                                    <span class="message-time">7:38pm</span>
+                                </div>
+                                <div class="message-text">hi, please pray for my dog</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Obadiah</span>
+                                    <span class="message-time">7:40pm</span>
+                                </div>
+                                <div class="message-text">what kind of dog?</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Sarah</span>
+                                    <span class="message-time">7:40pm</span>
+                                </div>
+                                <div class="message-text">yes of course</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Anonymous</span>
+                                    <span class="message-time">11:54pm</span>
+                                </div>
+                                <div class="message-text">well i actually like cats! so no....</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" placeholder="Type your prayer request..." id="prayer-input">
+                        <button class="chat-send-btn" onclick="sendMessage('prayer')">send</button>
+                    </div>
+                </div>
+                <p class="community-note">Messages are visible for 7-30 days. You can post with your name or stay anonymous.</p>
+            </div>
+
+            <!-- Testimonials Tab -->
+            <div class="tab-content" id="testimonials-tab">
+                <div class="chat-container">
+                    <div class="chat-messages" id="testimonial-messages">
+                        <div class="message-date">2/18</div>
+                        
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">papa john</span>
+                                    <span class="message-time">4:30pm</span>
+                                </div>
+                                <div class="message-text">long undisclosed testimony...</div>
+                            </div>
+                        </div>
+
+                        <div class="message-date">2/20</div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">jim</span>
+                                    <span class="message-time">7:38pm</span>
+                                </div>
+                                <div class="message-text">I broke my leg but i just got healed!</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Jeffery</span>
+                                    <span class="message-time">7:40pm</span>
+                                </div>
+                                <div class="message-text">hallelujah!!!!!!!</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">stan</span>
+                                    <span class="message-time">7:40pm</span>
+                                </div>
+                                <div class="message-text">someone prayed for me now i can see</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-message">
+                            <div class="message-bubble">
+                                <div class="message-header">
+                                    <span class="message-author">Anonymous</span>
+                                    <span class="message-time">11:54pm</span>
+                                </div>
+                                <div class="message-text">i smell cap..</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" placeholder="Share your testimony..." id="testimonial-input">
+                        <button class="chat-send-btn" onclick="sendMessage('testimonials')">send</button>
+                    </div>
+                </div>
+                <p class="community-note">Messages are visible for 7-30 days. You can post with your name or stay anonymous.</p>
             </div>
         </div>
     </section>
@@ -1302,6 +1661,62 @@
     </footer>
 
     <script>
+        // Tab Switching for Community Section
+        function switchTab(tab) {
+            // Remove active class from all tabs and content
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        // Simple Message Sending (demo only - would need backend for real functionality)
+        function sendMessage(type) {
+            const inputId = type === 'prayer' ? 'prayer-input' : 'testimonial-input';
+            const messagesId = type === 'prayer' ? 'prayer-messages' : 'testimonial-messages';
+            
+            const input = document.getElementById(inputId);
+            const messagesContainer = document.getElementById(messagesId);
+            
+            if (input.value.trim() === '') return;
+            
+            // Create new message element
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message';
+            
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+            
+            messageDiv.innerHTML = `
+                <div class="message-bubble">
+                    <div class="message-header">
+                        <span class="message-author">You</span>
+                        <span class="message-time">${time}</span>
+                    </div>
+                    <div class="message-text">${input.value}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Clear input
+            input.value = '';
+        }
+
+        // Allow Enter key to send message
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('prayer-input')?.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage('prayer');
+            });
+            
+            document.getElementById('testimonial-input')?.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage('testimonials');
+            });
+        });
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
